@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
+
 import styles from "./styles";
 
 import api from "../../service/api";
 
-import Header from "../../components/Header";
-
-export default function Home({ navigation }) {
+export default function Home({navigation}) {
   const [people, setPeople] = useState({ results: [] });
 
   useEffect(() => {
@@ -22,24 +21,12 @@ export default function Home({ navigation }) {
     loadNames();
   }, []);
 
-  function PersonDetail() {
-    navigation.navigate("Person");
-  }
-
   return (
-    <View >
-      <Header title="Pessoas" />
-      <View  style={styles.container}>
-        <View
-         
-        >
+    <View>
+      <View style={styles.container}>
+        <View>
           {people.results.map((person, i) => (
-            <TouchableOpacity
-              key={i}
-              style={styles.personContainer}
-              navigation={navigation}
-              onPress={PersonDetail}
-            >
+            <TouchableOpacity key={i} style={styles.personContainer} onPress={() => navigation.navigate('Person')}>
               <Image
                 style={styles.personContainerImage}
                 source={{ uri: person.picture.thumbnail }}

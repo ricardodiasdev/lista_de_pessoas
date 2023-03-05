@@ -1,15 +1,17 @@
 import React from "react";
-import { View, Text} from "react-native";
+import { View, Text, Button } from "react-native";
 
-import Header from "../../components/Header";
+import styles from "../Home/styles";
 
-export default function Person() {
+export default function Person({ navigation }) {
   return (
-    <View>
-      <Header title={"Pessoa"} />
-      <View>
-        <Text>PÁGINA DOS DETALHES DA PESSOA</Text>
-      </View>
+    <View >
+      <Text>Details Screen</Text>
+      <Button
+        style={styles.container}
+        title="Permaneça aqui"
+        onPress={() => navigation.push("Person")}
+      />
     </View>
   );
 }

@@ -1,16 +1,40 @@
-import React from "react";
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import * as React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./src/view/Home";
 import Person from "./src/view/Person";
 
-const Routes = createAppContainer(
-  createSwitchNavigator({
-    Home,
-    Person,
-  })
-);
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-  return  <Routes />
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="People"
+          component={Home}
+          options={{
+            title: "Pessoas",
+            headerStyle: { backgroundColor: "#063970" },
+            headerTintColor: "#fff",
+            headerTitleStyle: { fontWeight: "bold" , glexGrow: 1, textAlign: 'center'},
+          }}
+        />
+        <Stack.Screen
+          name="Person"
+          component={Person}
+          options={{
+            title: "Detalhes da pessoa",
+            headerStyle: { backgroundColor: "#063970" },
+            headerTintColor: "#fff",
+            headerTitleStyle: { fontWeight: "bold" },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
+
+export default App;
