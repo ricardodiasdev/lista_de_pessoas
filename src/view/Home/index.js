@@ -6,7 +6,7 @@ import api from "../../service/api";
 
 import Header from "../../components/Header";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [people, setPeople] = useState({ results: [] });
 
   useEffect(() => {
@@ -22,14 +22,28 @@ export default function Home() {
     loadNames();
   }, []);
 
+  function PersonDetail() {
+    navigation.navigate("Person");
+  }
+
   return (
-    <View>
+    <View >
       <Header title="Pessoas" />
-      <View style={styles.container}>
-        <View>
+      <View  style={styles.container}>
+        <View
+         
+        >
           {people.results.map((person, i) => (
-            <TouchableOpacity key={i} style={styles.personContainer}>
-              <Image style={styles.personContainerImage} source={{uri:person.picture.thumbnail}}/>
+            <TouchableOpacity
+              key={i}
+              style={styles.personContainer}
+              navigation={navigation}
+              onPress={PersonDetail}
+            >
+              <Image
+                style={styles.personContainerImage}
+                source={{ uri: person.picture.thumbnail }}
+              />
               <Text
                 style={styles.personContainerText}
               >{`${person.name.title} ${person.name.first} ${person.name.last}`}</Text>
