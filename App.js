@@ -1,11 +1,12 @@
 import React from "react";
 import { View } from "react-native";
-import Header from "./src/components/Header";
+
+import Home from './src/view/Home';
 
 export default function App() {
   return (
     <View>
-      <Header title='People'/>
+      <Home/>
     </View>
   );
 }
