@@ -5,7 +5,7 @@ import styles from "../Home/styles";
 
 export default function Person({ navigation }) {
   return (
-    <View >
+    <View>
       <Text>Details Screen</Text>
       <Button
         style={styles.container}

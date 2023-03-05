@@ -1,5 +1,4 @@
 import * as React from "react";
-import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -19,7 +18,7 @@ function App() {
             title: "Pessoas",
             headerStyle: { backgroundColor: "#063970" },
             headerTintColor: "#fff",
-            headerTitleStyle: { fontWeight: "bold" , glexGrow: 1, textAlign: 'center'},
+            headerTitleStyle: { fontWeight: "bold" },
           }}
         />
         <Stack.Screen

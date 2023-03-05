@@ -5,7 +5,7 @@ import styles from "./styles";
 
 import api from "../../service/api";
 
-export default function Home({navigation}) {
+export default function Home({ navigation }) {
   const [people, setPeople] = useState({ results: [] });
 
   useEffect(() => {
@@ -26,7 +26,11 @@ export default function Home({navigation}) {
       <View style={styles.container}>
         <View>
           {people.results.map((person, i) => (
-            <TouchableOpacity key={i} style={styles.personContainer} onPress={() => navigation.navigate('Person')}>
+            <TouchableOpacity
+              key={i}
+              style={styles.personContainer}
+              onPress={() => navigation.navigate("Person")}
+            >
               <Image
                 style={styles.personContainerImage}
                 source={{ uri: person.picture.thumbnail }}
