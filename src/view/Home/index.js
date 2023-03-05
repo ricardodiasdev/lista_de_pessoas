@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
 
 import api from "../../service/api";
@@ -28,9 +28,12 @@ export default function Home() {
       <View style={styles.container}>
         <View>
           {people.results.map((person, i) => (
-            <View key={i} style={styles.personContainer}>
-              <Text style={styles.personContainerText}>{person.name.first}</Text>
-            </View>
+            <TouchableOpacity key={i} style={styles.personContainer}>
+              <Image style={styles.personContainerImage} source={{uri:person.picture.thumbnail}}/>
+              <Text
+                style={styles.personContainerText}
+              >{`${person.name.title} ${person.name.first} ${person.name.last}`}</Text>
+            </TouchableOpacity>
           ))}
         </View>
       </View>
